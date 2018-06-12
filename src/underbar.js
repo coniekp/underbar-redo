@@ -38,7 +38,7 @@
   // Like first, but for the last elements. If n is undefined, return just the
   // last element.
   _.last = function(array, n) {
-    return n === undefined ? array[array.length-1] : n > array.length ? array : array.slice(array.length-n);
+    return n === undefined ? array[array.length - 1] : n > array.length ? array : array.slice(array.length - n);
   };
 
   // Call iterator(value, key, collection) for each element of collection.
@@ -52,8 +52,7 @@
       for (var i = 0; i < collection.length; i++) {
         iterator(collection[i], i, collection);
       }
-    }
-    else {
+    } else {
       for (var key in collection) {
         iterator(collection[key], key, collection);
       }
@@ -103,12 +102,12 @@
     var memo = [];
     iterator = iterator || _.identity;
     
-    return  _.filter(array, function(item) {
+    return _.filter(array, function(item) {
       if (!memo.includes(iterator(item))) {
         memo.push(iterator(item));
         return item;
       }
-    })
+    });
   };
 
 
@@ -169,12 +168,8 @@
       collection = collection.slice(1);
   
     }
-    console.log("starting acc: " + accumulator);
-    _.each(collection, function(item){
-      
+    _.each(collection, function(item) {
       accumulator = iterator (accumulator, item);
-      console.log(collection, accumulator);
-
     });
     return accumulator;
   };
